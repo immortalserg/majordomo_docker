@@ -36,8 +36,13 @@ server {
       proxy_pass http://phpmyadmin:80/;
       include /etc/nginx/conf/redirect.conf;
     }
+}
 
-
-
-
+server { server_name pma.localhost;
+ location / { proxy_pass http://phpmyadmin:80;
+ include /etc/nginx/conf/redirect.conf; }
+}
+server { server_name sv.localhost;
+ location / { proxy_pass http://supervisor:9001;
+ include /etc/nginx/conf/redirect.conf; }
 }
