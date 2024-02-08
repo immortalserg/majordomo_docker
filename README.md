@@ -18,9 +18,9 @@ install.sh
 
 войдите в браузере по адресу: http://localhost
 
-phpmyadmin находится по адресу: http://localhost:85
+phpmyadmin находится по адресу: http://pma.localhost
 
-supervisor находится по адресу: http://localhost:9001
+supervisor находится по адресу: http://sv.localhost
 
 порты можно поменять в файле .env
 
