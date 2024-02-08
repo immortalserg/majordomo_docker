@@ -1,1 +1,43 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    index index.php index.html index.htm ;
+    server_name 127.0.0.1 localhost _;
+    set $MAGE_ROOT /var/www/majordomo;
+    error_log  /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    root $MAGE_ROOT;
+    charset utf-8;
 
+    location ~ \.html {
+        if (!-e $request_filename){
+            rewrite ^(.*)$ /nf.php;
+        }
+    rewrite pda$ /popup/pda.html redirect;
+	rewrite ^/api/ /api.php;
+        if (!-e $request_filename){
+          rewrite ^(.*)$ /nf.php;
+        }
+    #включаем авторизацию
+    #auth_basic "Enter password!";
+    #auth_basic_user_file /etc/nginx/conf/.htpass;
+    }
+    location /config.php { deny all; }
+    location /gps.php { auth_basic off; allow all; }
+    location /webhook_telegram.php { auth_basic off; allow all; }
+    location ~ [^/]\.php(/|$) { 
+	include conf/fastcgi-php.conf; 
+    }
+    location /api { rewrite ^(.*)$ /api.php; }
+    location ~ /\.ht { deny all; }
+    location /debmes.txt { deny all; }
+# редирект phpmyadmin
+    location /phpmyadmin {
+      proxy_pass http://phpmyadmin:80/;
+      include /etc/nginx/conf/redirect.conf;
+    }
+
+
+
+
+}
