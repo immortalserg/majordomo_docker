@@ -80,8 +80,8 @@ services:
   networks: 
    netlemp:
     ipv4_address: ${IPV4_NETWORK:-172.100.1}.5
-  ports:
-  - ${PHPMYADMIN_PORT:-85}:80
+#  ports:
+#  - ${PHPMYADMIN_PORT:-85}:80
   environment:
     PMA_HOST: mariadb
   depends_on:
@@ -99,7 +99,7 @@ services:
   - nginx
   - mariadb
   - php82fpm
-  ports:
-  - ${SUPERVISOR_PORT:-9001}:9001
+#  ports:
+#  - ${SUPERVISOR_PORT:-9001}:9001
 
 
