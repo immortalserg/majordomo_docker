@@ -17,8 +17,7 @@ apt -qq install git -y
 git clone https://github.com/sergejey/majordomo.git ./www/majordomo
 cp ./app-conf/config.php ./www/majordomo/config.php
 sed -i "/DB_PASSWORD/s/'majordomo'/'$passw'/" ./www/majordomo/config.php
-chmod -R 777 www
-sleep 10
+
 docker compose up -d
 
 tee ./www/majordomo/dbdump.sh << EOF
@@ -32,7 +31,10 @@ echo -e "\033[35m  минуточку...\033[0m"
 sleep 10
 docker exec mariadb /var/www/majordomo/dbdump.sh
 rm ./www/majordomo/dbdump.sh
+chmod -R 777 www
+sleep 10
 docker restart supervisor
+docker restart php82fpm
 echo -e "\033[32m Установка завершена.\033[0m"
 echo "MajorDomo установлен, зайдите по адресу http://localhost"
 echo "PHPMyAdmin установлен, зайдите по адресу http://pma.localhost"
