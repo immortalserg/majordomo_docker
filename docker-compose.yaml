@@ -96,6 +96,7 @@ services:
     ipv4_address: ${IPV4_NETWORK:-172.100.1}.6
   volumes:
   - ./www/:/var/www/
+  - ./nginx/conf:/nginx/conf
   depends_on:
   - nginx
   - mariadb
