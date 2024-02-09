@@ -33,8 +33,8 @@ docker exec mariadb /var/www/majordomo/dbdump.sh
 rm ./www/majordomo/dbdump.sh
 echo -e "\033[32m Установка завершена.\033[0m"
 echo "MajorDomo установлен, зайдите по адресу http://localhost"
-echo "PHPMyAdmin установлен, зайдите по адресу http://localhost:$PHPMYADMIN_PORT"
-
+echo "PHPMyAdmin установлен, зайдите по адресу http://pma.localhost"
+echo "Supervisor установлен, зайдите по адресу http://sv.localhost"
 
 
 
