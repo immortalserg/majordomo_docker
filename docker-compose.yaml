@@ -85,6 +85,10 @@ services:
 #  - ${PHPMYADMIN_PORT:-85}:80
   environment:
     PMA_HOST: mariadb
+    PMA_USER: root
+    PMA_PASSWORD: ${MARIADB_ROOT_PASSWORD:-mariadb}
+    UPLOAD_LIMIT: 50M
+
   depends_on:
   - mariadb
 # supervisor
