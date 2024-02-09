@@ -5,15 +5,12 @@
 Установите git или скачайте архив репозитария и распакуйте
 
 выполните следующие команды:
-
+'''
 git clone https://github.com/immortalserg/majordomo_docker.git
-
 cd majordomo_docker
-
 chmod +x install.sh
-
 ./install.sh
-
+'''
 на запрос введите пароль для базы данных
 
 дождитесь установки
