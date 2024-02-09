@@ -35,6 +35,7 @@ docker exec -it supervisor htpasswd /nginx/conf/.htpass ИМЯ_ПОЛЬЗОВА�
 соответственно ИМЯ_ПОЛЬЗОВАТЕЛЯ надо заменить на свое.
 
 Далее надо раскомментировать строки в файле /nginx/sites-enabled/majordomo
-
-'''auth_basic "Enter password!";
-auth_basic_user_file /etc/nginx/conf/.htpass;'''
+```
+auth_basic "Enter password!";
+auth_basic_user_file /etc/nginx/conf/.htpass;
+```
