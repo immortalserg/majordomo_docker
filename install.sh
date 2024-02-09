@@ -17,7 +17,7 @@ apt -qq install git -y
 git clone https://github.com/sergejey/majordomo.git ./www/majordomo
 cp ./app-conf/config.php ./www/majordomo/config.php
 sed -i "/DB_PASSWORD/s/'majordomo'/'$passw'/" ./www/majordomo/config.php
-chmod 777 ./www
+chmod 777 www
 docker compose up -d
 
 tee ./www/majordomo/dbdump.sh << EOF
