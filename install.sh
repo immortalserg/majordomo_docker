@@ -18,6 +18,7 @@ git clone https://github.com/sergejey/majordomo.git ./www/majordomo
 cp ./app-conf/config.php ./www/majordomo/config.php
 sed -i "/DB_PASSWORD/s/'majordomo'/'$passw'/" ./www/majordomo/config.php
 chmod 777 www
+sleep 3
 docker compose up -d
 
 tee ./www/majordomo/dbdump.sh << EOF
