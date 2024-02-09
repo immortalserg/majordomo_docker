@@ -8,6 +8,8 @@
 
 git clone https://github.com/immortalserg/majordomo_docker.git
 
+cd majordomo_docker
+
 chmod +x install.sh
 
 install.sh
