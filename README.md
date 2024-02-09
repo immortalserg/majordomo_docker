@@ -36,7 +36,7 @@ docker exec -it supervisor htpasswd /nginx/conf/.htpass ИМЯ_ПОЛЬЗОВА�
 auth_basic "Enter password!";
 auth_basic_user_file /etc/nginx/conf/.htpass;
 ```
-после изменений в конфигурационные файлв nginx необходимо перезапустить nginx командой
+после изменений в конфигурационные файлы nginx необходимо перезапустить nginx командой
 ```
 docker exec nginx nginx -s reload
 ```
