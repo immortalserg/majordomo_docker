@@ -31,18 +31,17 @@ server {
     location /api { rewrite ^(.*)$ /api.php; }
     location ~ /\.ht { deny all; }
     location /debmes.txt { deny all; }
-# редирект phpmyadmin
-    location /phpmyadmin {
-      proxy_pass http://phpmyadmin:80/;
-      include /etc/nginx/conf/redirect.conf;
-    }
 }
 
 server { server_name pma.localhost;
  location / { proxy_pass http://phpmyadmin:80;
  include /etc/nginx/conf/redirect.conf; }
+    #auth_basic "Enter password!";
+    #auth_basic_user_file /etc/nginx/conf/.htpass;
 }
 server { server_name sv.localhost;
  location / { proxy_pass http://supervisor:9001;
  include /etc/nginx/conf/redirect.conf; }
+    #auth_basic "Enter password!";
+    #auth_basic_user_file /etc/nginx/conf/.htpass;
 }
