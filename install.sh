@@ -18,7 +18,7 @@ git clone https://github.com/sergejey/majordomo.git ./www/majordomo
 cp ./app-conf/config.php ./www/majordomo/config.php
 sed -i "/DB_PASSWORD/s/'majordomo'/'$passw'/" ./www/majordomo/config.php
 chmod -R 777 www
-sleep 3
+sleep 10
 docker compose up -d
 
 tee ./www/majordomo/dbdump.sh << EOF
@@ -37,6 +37,7 @@ echo -e "\033[32m Установка завершена.\033[0m"
 echo "MajorDomo установлен, зайдите по адресу http://localhost"
 echo "PHPMyAdmin установлен, зайдите по адресу http://pma.localhost"
 echo "Supervisor установлен, зайдите по адресу http://sv.localhost"
+
 
 
 
