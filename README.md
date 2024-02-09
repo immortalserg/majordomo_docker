@@ -26,13 +26,17 @@ supervisor находится по адресу: http://sv.localhost
 включить порты mysql, php-fpm можно отредактировав файл docker-compose.yaml убрав комментарии
 
 Для установки паролей на majordomo и supervised я рекомендую пользоваться средствами mginx, для этого создайте пароль в файле паролей, это можно сделать с помощью утилиты htpasswd которая есть в контейнере supervisor
-
+```
 docker exec -it supervisor htpasswd /nginx/conf/.htpass ИМЯ_ПОЛЬЗОВАТЕЛЯ
-
+```
 соответственно ИМЯ_ПОЛЬЗОВАТЕЛЯ надо заменить на свое.
 
 Далее надо раскомментировать строки в файле /nginx/sites-enabled/majordomo
 ```
 auth_basic "Enter password!";
 auth_basic_user_file /etc/nginx/conf/.htpass;
+```
+после изменений в конфигурационные файлв nginx необходимо перезапустить nginx командой
+```
+docker exec nginx nginx -s reload
 ```
