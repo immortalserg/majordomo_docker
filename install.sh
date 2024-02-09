@@ -32,6 +32,7 @@ echo -e "\033[35m  минуточку...\033[0m"
 sleep 30
 docker exec mariadb /var/www/majordomo/dbdump.sh
 rm ./www/majordomo/dbdump.sh
+docker restart supervisor
 echo -e "\033[32m Установка завершена.\033[0m"
 echo "MajorDomo установлен, зайдите по адресу http://localhost"
 echo "PHPMyAdmin установлен, зайдите по адресу http://pma.localhost"
