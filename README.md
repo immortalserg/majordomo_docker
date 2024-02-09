@@ -12,7 +12,7 @@ cd majordomo_docker
 
 chmod +x install.sh
 
-install.sh
+./install.sh
 
 на запрос введите пароль для базы данных
 
