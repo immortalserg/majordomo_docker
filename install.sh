@@ -29,7 +29,7 @@ echo "OK"
 EOF
 chmod +x ./www/majordomo/dbdump.sh
 echo -e "\033[35m  минуточку...\033[0m"
-sleep 30
+sleep 10
 docker exec mariadb /var/www/majordomo/dbdump.sh
 rm ./www/majordomo/dbdump.sh
 docker restart supervisor
