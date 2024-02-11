@@ -8,7 +8,11 @@ server {
     access_log /var/log/nginx/access.log;
     root $MAGE_ROOT;
     charset utf-8;
-
+    location / {
+    #включаем авторизацию
+    #auth_basic "Enter password!";
+    #auth_basic_user_file /etc/nginx/conf/.htpass;
+    }
     location ~ \.html {
         if (!-e $request_filename){
             rewrite ^(.*)$ /nf.php;
@@ -18,9 +22,6 @@ server {
         if (!-e $request_filename){
           rewrite ^(.*)$ /nf.php;
         }
-    #включаем авторизацию
-    #auth_basic "Enter password!";
-    #auth_basic_user_file /etc/nginx/conf/.htpass;
     }
     location /config.php { deny all; }
     location /gps.php { auth_basic off; allow all; }
