@@ -95,6 +95,7 @@ services:
  supervisor:
   container_name: supervisor
   build: ./app-conf/supervisor/
+  restart: always
   networks: 
    netlemp:
     ipv4_address: ${IPV4_NETWORK:-172.100.1}.6
@@ -102,7 +103,6 @@ services:
   - ./www/:/var/www/
   - ./nginx/conf:/nginx/conf
   depends_on:
-  - nginx
   - mariadb
   - php82fpm
 #  ports:
